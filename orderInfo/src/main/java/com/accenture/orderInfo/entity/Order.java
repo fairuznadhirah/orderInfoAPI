@@ -6,15 +6,18 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "order")
+@Table(name = "order_service")
 @Data
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     Long id;
 
+    @Column(name = "wizard_id")
     Integer wizardId;
+    @Column(name = "wand_id")
     Integer wandId;
 
     public Long getId() {
