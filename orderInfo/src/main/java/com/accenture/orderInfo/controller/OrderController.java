@@ -43,43 +43,8 @@ public class OrderController {
     }
 
 
-    @GetMapping("/getAllOrder")
-    public List<WizardPojo> getAllOrder() {
-        ResponseEntity<List<WizardPojo>> responseWizard = restTemplate.exchange(url, HttpMethod.GET,
-                null, new ParameterizedTypeReference<List<WizardPojo>>() {
-                });
 
 
-//        List<String> list = new ArrayList<>();
-        List<WizardPojo> activeWizard = new ArrayList<>();
-
-
-        for (WizardPojo wizardPojo : responseWizard.getBody()) {
-            if (wizardPojo.getActive_wizard().equals("yes")) {
-                activeWizard.add(wizardPojo);
-            }
-        }
-
-//        return responseWizard.getBody().size();
-        return activeWizard;
-    }
-
-    @GetMapping("/getAllMagic")
-    public List<MagicPojo> getAllMagic() {
-
-        ResponseEntity<List<MagicPojo>> responseMagic = restTemplate.exchange(url2, HttpMethod.GET,
-                null, new ParameterizedTypeReference<List<MagicPojo>>() {
-                });
-
-        List<MagicPojo> stock = new ArrayList<>();
-
-        for (MagicPojo magicPojo : responseMagic.getBody()) {
-            if (magicPojo.getMagic_stock().equals(63)) {
-                stock.add(magicPojo);
-            }
-        }
-        return stock;
-    }
 }
 
 
